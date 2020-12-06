@@ -8,10 +8,12 @@ import com.google.ads.googleads.v6.services.AdGroupAdOperation
 import com.google.ads.googleads.v6.services.MutateAdGroupAdsResponse
 import com.google.ads.googleads.v6.utils.ResourceNames
 import com.google.common.collect.ImmutableList
+import org.slf4j.LoggerFactory
 
 class AdGroupAdStatusService(private val client: GoogleAdsClient) {
+    private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun activate(customerId: Long, adGroupId: Long): Unit {
+    fun activate(customerId: Long, adGroupId: Long) {
 
         val adGroupAd = AdGroupAd
             .newBuilder()
@@ -23,9 +25,11 @@ class AdGroupAdStatusService(private val client: GoogleAdsClient) {
             customerId = customerId.toString(),
             adGroupAd = adGroupAd,
         )
+
+        logger.info(result?.allFields.toString())
     }
 
-    fun stop(customerId: Long, adGroupId: Long): Unit {
+    fun stop(customerId: Long, adGroupId: Long) {
 
         val adGroup = AdGroupAd
             .newBuilder()
@@ -37,6 +41,8 @@ class AdGroupAdStatusService(private val client: GoogleAdsClient) {
             customerId = customerId.toString(),
             adGroupAd = adGroup
         )
+
+        logger.info(result?.allFields.toString())
     }
 
     private fun update(customerId: String, adGroupAd: AdGroupAd): MutateAdGroupAdsResponse? {
@@ -57,7 +63,7 @@ class AdGroupAdStatusService(private val client: GoogleAdsClient) {
                     )
                 }
         } catch (e: Throwable) {
-            println(e)
+            logger.error("Occur error on update status AdGroupAd.", e)
             null
         }
     }
