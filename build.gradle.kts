@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.api-ads:google-ads:10.0.0")
+    implementation("com.google.api-ads:google-ads:10.1.0")
     implementation("org.slf4j:slf4j-api:1+")
     implementation("ch.qos.logback:logback-classic:1+")
     testImplementation(kotlin("test-junit5"))
