@@ -25,7 +25,6 @@ class EnvironmentVariablesProvider {
                 .setClientSecret(clientSecret)
                 .setRefreshToken(refreshToken)
                 .build()
-
         }
     }
 }
