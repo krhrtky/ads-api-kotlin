@@ -2,11 +2,11 @@ package libs.google.ads.adgroupad
 
 import com.google.ads.googleads.lib.GoogleAdsClient
 import com.google.ads.googleads.lib.utils.FieldMasks
-import com.google.ads.googleads.v6.enums.AdGroupAdStatusEnum
-import com.google.ads.googleads.v6.resources.AdGroupAd
-import com.google.ads.googleads.v6.services.AdGroupAdOperation
-import com.google.ads.googleads.v6.services.MutateAdGroupAdsResponse
-import com.google.ads.googleads.v6.utils.ResourceNames
+import com.google.ads.googleads.v8.enums.AdGroupAdStatusEnum
+import com.google.ads.googleads.v8.resources.AdGroupAd
+import com.google.ads.googleads.v8.services.AdGroupAdOperation
+import com.google.ads.googleads.v8.services.MutateAdGroupAdsResponse
+import com.google.ads.googleads.v8.utils.ResourceNames
 import com.google.common.collect.ImmutableList
 import org.slf4j.LoggerFactory
 
@@ -48,9 +48,9 @@ class AdGroupAdStatusService(private val client: GoogleAdsClient) {
     private fun update(customerId: String, adGroupAd: AdGroupAd): MutateAdGroupAdsResponse? {
 
         val operation = AdGroupAdOperation.newBuilder()
-                .setUpdate(adGroupAd)
-                .setUpdateMask(FieldMasks.allSetFieldsOf(adGroupAd))
-                .build()
+            .setUpdate(adGroupAd)
+            .setUpdateMask(FieldMasks.allSetFieldsOf(adGroupAd))
+            .build()
 
         return try {
             client
