@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     implementation("com.google.api-ads:google-ads:15.0.0")
-    implementation("org.slf4j:slf4j-api:1+")
+    implementation("org.slf4j:slf4j-api:1.7.36")
     implementation("ch.qos.logback:logback-classic:1+")
     testImplementation(kotlin("test-junit5"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
